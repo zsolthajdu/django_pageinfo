@@ -15,4 +15,4 @@ before_script:
  - ln -s zsolthajdu/django_pageinfo pageinfo
 
 script:
- - python manage.py pageinfo.test
+ - python manage.py test pageinfo.tests
