@@ -2,3 +2,4 @@ django==1.11
 djangorestframework
 beautifulsoup4
 lxml
+requests
