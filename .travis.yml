@@ -14,6 +14,7 @@ before_script:
  - python manage.py migrate
  - ln -s zsolthajdu/django_pageinfo pageinfo
  - echo "INSTALLED_APPS += [ 'rest_framework', 'pageinfo']" >> testsite/settings.py
+ - sed -i -e "s/^]/   url\(r\'\^\'\, include\(\'pageinfo\.urls\'\)\)\,\n]/" testsite/urls.py
  
 script:
  - python manage.py test pageinfo.tests
