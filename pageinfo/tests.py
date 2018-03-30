@@ -16,9 +16,10 @@ class ViewTestCase(TestCase):
         self.client = APIClient()
         self.client.force_authenticate(user=user)
         
+        print( 'Create path : ', reverse('create') )
         # Since user model instance is not serializable, use its Id/PK
         self.query_data = {'url': 'http://CNN.com' }
-        self.response = self.client.post( '/pageinfo/', self.query_data, format="json")
+        self.response = self.client.post( reverse('create'), self.query_data, format="json")
 
     def test_api_can_obtain_info(self):
         """Test the api can obtain page info."""
