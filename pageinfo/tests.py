@@ -16,14 +16,38 @@ class ViewTestCase(TestCase):
         self.client = APIClient()
         self.client.force_authenticate(user=user)
         
-        print( 'Create path : ', reverse('create') )
         # Since user model instance is not serializable, use its Id/PK
         self.query_data = {'url': 'http://CNN.com' }
-        self.response = self.client.post( reverse('create'), self.query_data, format="json")
+        self.response = self.client.post( '/pageinfo/', self.query_data, format="json")
+
+    def print_response(self):
+        """
+        Dumps fields of response for debugging purposes
+        """
+        print( "URL  : ", self.response.data['url'] )
+        print( "Title: ", self.response.data['title'] )
+        print( "Desc : ", self.response.data['desc'] )
+        print( "Tags : ", self.response.data['keywords'] )
 
     def test_api_can_obtain_info(self):
         """Test the api can obtain page info."""
         self.assertEqual(self.response.status_code, status.HTTP_200_OK)
-        print( "URL  : ", self.response.data['url'] )
-        print( "Title: ", self.response.data['title'] )
-        print( "Desc : ", self.response.data['desc'] )
+
+    def test_api_part2(self):
+        """Test that default values don't prevent return of obtained information."""
+        self.query_data = {'url': 'https://CNN.com', 'title':'TheDefaultTitle', 'desc':'Some default description','keywords':'' }
+        self.response = self.client.post( '/pageinfo/', self.query_data, format="json")
+        self.assertEqual(self.response.status_code, status.HTTP_200_OK)
+
+    def test_api_get_plain(self):
+        """Test GET request withOUT url parameter."""
+        self.response = self.client.get( '/pageinfo/', format="json")
+        self.assertEqual(self.response.status_code, status.HTTP_200_OK)
+        #self.print_response()
+
+    def test_api_get(self):
+        """Test GET request with url parameter."""
+        self.response = self.client.get( '/pageinfo/?url=http://linux.com', format="json")
+        self.assertEqual(self.response.status_code, status.HTTP_200_OK)
+        #self.print_response()
+
