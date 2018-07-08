@@ -46,8 +46,8 @@ class ViewTestCase(TestCase):
         #self.print_response()
 
     def test_api_get(self):
-        """Test GET request with url parameter."""
-        self.response = self.client.get( '/pageinfo/?url=http://linux.com', format="json")
+        """Test GET request with url parameter and with emoji in response."""
+        self.response = self.client.get( '/pageinfo/?url=https://dev.to/oktadev/tutorial-build-a-basic-crud-app-with-nodejs-1ohn', format="json")
         self.assertEqual(self.response.status_code, status.HTTP_200_OK)
-        #self.print_response()
+        self.print_response()
 
