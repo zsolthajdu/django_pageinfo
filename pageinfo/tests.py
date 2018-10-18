@@ -26,8 +26,8 @@ class ViewTestCase(TestCase):
         """
         print( "URL  : ", self.response.data['url'] )
         print( "Title: ", self.response.data['title'] )
-        print( "Desc : ", self.response.data['desc'] )
-        print( "Tags : ", self.response.data['keywords'] )
+        print( "Desc : ", self.response.data['description'] )
+        print( "Tags : ", self.response.data['tags'] )
 
     def test_api_can_obtain_info(self):
         """Test the api can obtain page info."""
@@ -35,7 +35,7 @@ class ViewTestCase(TestCase):
 
     def test_api_part2(self):
         """Test that default values don't prevent return of obtained information."""
-        self.query_data = {'url': 'https://CNN.com', 'title':'TheDefaultTitle', 'desc':'Some default description','keywords':'' }
+        self.query_data = {'url': 'https://CNN.com', 'title':'TheDefaultTitle', 'description':'Some default description','tags':'' }
         self.response = self.client.post( '/pageinfo/', self.query_data, format="json")
         self.assertEqual(self.response.status_code, status.HTTP_200_OK)
 

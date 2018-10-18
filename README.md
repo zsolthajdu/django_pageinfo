@@ -22,10 +22,10 @@ The information is returned in similar JSON format:
 
 ```lang=javascript
 { 
-  'url'   : "http://www.example.com", 
-  'title' : "The Obtained Page Title", 
-  'desc'  : "The Obtained page description",
-  'keywords': "Comma,separated,list,of,page,keywords" 
+  'url'   :      "http://www.example.com", 
+  'title' :      "The Obtained Page Title", 
+  'description' : "The Obtained page description",
+  'tags':        "Comma,separated,list,of,page,keywords" 
 }
 ```
 
