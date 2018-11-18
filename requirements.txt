@@ -1,4 +1,4 @@
-django==2.0.3
+django==2.0.8
 djangorestframework
 beautifulsoup4
 lxml

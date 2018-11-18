@@ -1,5 +1,5 @@
 # Pageinfo app
-[![Build Status](https://travis-ci.org/zsolthajdu/django_pageinfo.svg?branch=master)](https://travis-ci.org/zsolthajdu/django_pageinfo)
+[![Build Status](https://travis-ci.org/zsolthajdu/django_pageinfo.svg?branch=master)](https://travis-ci.org/zsolthajdu/django_pageinfo)  [![Known Vulnerabilities](https://snyk.io/test/github/zsolthajdu/django_pageinfo/badge.svg)](https://snyk.io/test/github/zsolthajdu/django_pageinfo)
 
 Very simple Django app, using the [Django Rest Framework](http://www.django-rest-framework.org), no models, no database.  
 
