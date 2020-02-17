@@ -3,7 +3,6 @@ from django.http import JsonResponse
 from rest_framework.response import Response
 from rest_framework import viewsets, status
 from .serializers  import PageInfoSerializer
-from rest_framework.decorators import detail_route, list_route
 from .pageinfo import PageInfo
 
 #
